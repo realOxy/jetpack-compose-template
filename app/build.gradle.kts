@@ -33,10 +33,6 @@ android {
             isMinifyEnabled = false
             isDebuggable = true
         }
-        val benchmark by creating {
-            isDebuggable = false
-            isMinifyEnabled = false
-        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -58,9 +54,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-//    configurations {
-//        implementation.get().exclude(group = "com.intellij", module = "annotations")
-//    }
 }
 
 dependencies {
