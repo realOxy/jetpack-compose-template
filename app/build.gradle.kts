@@ -6,6 +6,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("kotlinx-serialization")
+    id("com.google.dagger.hilt.android")
 }
 android {
     namespace = "com.sortby.composetemplate"

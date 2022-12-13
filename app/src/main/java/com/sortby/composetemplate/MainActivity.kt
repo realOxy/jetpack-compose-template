@@ -7,7 +7,9 @@ import androidx.core.view.WindowCompat
 import com.bumble.appyx.core.integration.NodeHost
 import com.bumble.appyx.core.integrationpoint.NodeActivity
 import com.sortby.composetemplate.appyx.RootNode
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : NodeActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
