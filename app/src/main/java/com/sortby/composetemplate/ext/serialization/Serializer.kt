@@ -3,6 +3,7 @@ package com.sortby.composetemplate.ext.serialization
 import kotlinx.serialization.*
 import okhttp3.MediaType
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.ResponseBody
 import java.lang.reflect.Type
 
@@ -34,7 +35,7 @@ internal sealed class Serializer {
             value: T
         ): RequestBody = format
             .encodeToString(saver, value)
-            .let { RequestBody.create(contentType, it) }
+            .toRequestBody(contentType)
     }
 
     class FromBytes(override val format: BinaryFormat) : Serializer() {
@@ -52,6 +53,6 @@ internal sealed class Serializer {
             value: T
         ): RequestBody = format
             .encodeToByteArray(saver, value)
-            .let { RequestBody.create(contentType, it, 0, it.size) }
+            .toRequestBody(contentType, 0)
     }
 }
