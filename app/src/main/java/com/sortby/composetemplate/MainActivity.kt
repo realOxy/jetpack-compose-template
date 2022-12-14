@@ -16,9 +16,10 @@ class MainActivity : NodeActivity() {
         installSplashScreen()
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            NodeHost(integrationPoint = appyxIntegrationPoint) {
-                RootNode(it)
-            }
+            NodeHost(
+                integrationPoint = appyxIntegrationPoint,
+                factory = ::RootNode
+            )
         }
     }
 }

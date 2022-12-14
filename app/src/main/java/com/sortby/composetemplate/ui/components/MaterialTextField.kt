@@ -75,14 +75,14 @@ fun MaterialTextField(
     val duration = LocalDuration.current
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val interactionSource = remember { MutableInteractionSource() }
-    val interactionSourceState = interactionSource.collectIsFocusedAsState()
+    val interactionSourceState by interactionSource.collectIsFocusedAsState()
     val scope = rememberCoroutineScope()
 
     val imeVisible = WindowInsets.isImeVisible
 
     // Bring the composable into view (visible to user).
-    LaunchedEffect(imeVisible, interactionSourceState.value) {
-        if (imeVisible && interactionSourceState.value) {
+    LaunchedEffect(imeVisible, interactionSourceState) {
+        if (imeVisible && interactionSourceState) {
             scope.launch {
                 delay(duration.fast.toLong())
                 bringIntoViewRequester.bringIntoView()
@@ -171,13 +171,13 @@ fun MaterialPasswordTextField(
     val passwordVisibility = remember { mutableStateOf(false) }
     val bringIntoViewRequester = remember { BringIntoViewRequester() }
     val interactionSource = remember { MutableInteractionSource() }
-    val interactionSourceState = interactionSource.collectIsFocusedAsState()
+    val interactionSourceState by interactionSource.collectIsFocusedAsState()
     val scope = rememberCoroutineScope()
     val imeVisible = WindowInsets.isImeVisible
 
     // Bring the composable into view (visible to user).
-    LaunchedEffect(imeVisible, interactionSourceState.value) {
-        if (imeVisible && interactionSourceState.value) {
+    LaunchedEffect(imeVisible, interactionSourceState) {
+        if (imeVisible && interactionSourceState) {
             scope.launch {
                 delay(duration.fast.toLong())
                 bringIntoViewRequester.bringIntoView()

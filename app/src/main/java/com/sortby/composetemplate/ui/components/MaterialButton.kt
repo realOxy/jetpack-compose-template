@@ -23,8 +23,8 @@ fun MaterialButton(
     textRes: Int,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    containerColor: Color = LocalTheme.current.primary,
-    contentColor: Color = LocalTheme.current.onPrimary,
+    containerColor: Color = LocalTheme.current.tint,
+    contentColor: Color = LocalTheme.current.onTint,
     disabledContainerColor: Color = containerColor.copy(alpha = 0.12f),
     disabledContentColor: Color = containerColor.copy(alpha = 0.38f),
     onClick: () -> Unit
@@ -46,8 +46,8 @@ fun MaterialButton(
     text: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    containerColor: Color = LocalTheme.current.primary,
-    contentColor: Color = LocalTheme.current.onPrimary,
+    containerColor: Color = LocalTheme.current.tint,
+    contentColor: Color = LocalTheme.current.onTint,
     disabledContainerColor: Color = containerColor.copy(alpha = 0.12f),
     disabledContentColor: Color = containerColor.copy(alpha = 0.38f),
     onClick: () -> Unit
@@ -76,7 +76,7 @@ fun MaterialTextButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     containerColor: Color = Color.Transparent,
-    contentColor: Color = LocalTheme.current.primary,
+    contentColor: Color = LocalTheme.current.tint,
     disabledContainerColor: Color = Color.Transparent,
     disabledContentColor: Color = LocalTheme.current.onSurface.copy(alpha = 0.38f),
     onClick: () -> Unit
@@ -99,7 +99,7 @@ fun MaterialTextButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     containerColor: Color = Color.Transparent,
-    contentColor: Color = LocalTheme.current.primary,
+    contentColor: Color = LocalTheme.current.tint,
     disabledContainerColor: Color = Color.Transparent,
     disabledContentColor: Color = LocalTheme.current.onSurface.copy(alpha = 0.38f),
     onClick: () -> Unit

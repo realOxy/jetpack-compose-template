@@ -1,4 +1,5 @@
 buildscript {
+    val kotlin_version by extra("1.7.20")
     repositories {
         google()
         mavenCentral()
@@ -8,6 +9,7 @@ buildscript {
     dependencies {
         classpath(libs.dagger.hilt.android.gradle.plugin)
         classpath(libs.kotlin.serialization)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 

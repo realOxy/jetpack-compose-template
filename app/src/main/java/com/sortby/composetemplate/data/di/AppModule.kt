@@ -1,9 +1,13 @@
-package com.sortby.composetemplate.di
+package com.sortby.composetemplate.data.di
 
+import android.content.Context
+import androidx.room.Room
+import com.sortby.composetemplate.data.source.dao.AppDatabase
 import com.sortby.composetemplate.ext.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
@@ -17,14 +21,28 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+    @Provides
+    @Singleton
+    fun provideDatabase(
+        @ApplicationContext context: Context
+    ): AppDatabase {
+        return Room
+            .databaseBuilder(
+                context = context,
+                klass = AppDatabase::class.java,
+                name = AppDefaults.DB_NAME
+            )
+            .build()
+    }
+
     @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit {
         val contentType = "application/json".toMediaType()
         return Retrofit.Builder()
-            .baseUrl(ApiDefaults.BASE_URL)
-            .addConverterFactory(ApiDefaults.json.asConverterFactory(contentType))
+            .baseUrl(AppDefaults.BASE_URL)
+            .addConverterFactory(AppDefaults.json.asConverterFactory(contentType))
             .build()
     }
 
@@ -47,8 +65,9 @@ object AppModule {
     }
 }
 
-internal object ApiDefaults {
+internal object AppDefaults {
     const val BASE_URL = ""
+    const val DB_NAME = "db"
     val json by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
         Json {
             ignoreUnknownKeys = true

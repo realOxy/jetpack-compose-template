@@ -70,6 +70,7 @@ dependencies {
 
     implementation(libs.androidx.compose.ui.asProvider())
     implementation(libs.androidx.compose.ui.test.manifest)
+    implementation(libs.androidx.compose.ui.test.manifest)
     implementation(libs.androidx.compose.ui.tooling.core)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material.icons.extended)
@@ -81,6 +82,7 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
 
     implementation(libs.bundles.androidx.paging)
+    implementation(libs.bundles.androidx.room)
 
     implementation(libs.androidx.startup.runtime)
 
