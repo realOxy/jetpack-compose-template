@@ -17,4 +17,5 @@
 7. kotlinx-serialization.
 8. Coil.
 9. Lottie.
-
+10. Room.
+11. WorkManager.
