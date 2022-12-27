@@ -1,4 +1,4 @@
-## Compose Template
+## Jetpack Compose Template
 
 ### Before you begin
 
